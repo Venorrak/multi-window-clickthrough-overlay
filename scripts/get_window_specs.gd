@@ -9,20 +9,18 @@ func _ready() -> void:
 		shape = clickShape.polygon.duplicate()
 		for i in shape.size():
 			shape[i] = shape[i] + position
-	
+
 	match self.get_class():
 		"Sprite2D":
 			size = self.texture.get_size()
 		"Node2D":
 			if get_child(0).is_class("Control"): #recommend a panelContainer
 				size = get_child(0).get_rect().size
-			
+		#TODO Implement new support here
+
 	get_parent().setSpecs(
 		{
 			"size": size,
 			"shape": shape
 		}
 	)
-func _input(event: InputEvent) -> void:
-	#print(event)
-	pass
