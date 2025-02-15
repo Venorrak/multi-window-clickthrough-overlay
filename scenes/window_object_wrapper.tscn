@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqhmt6k7s7i06"]
+
+[ext_resource type="Script" path="res://scripts/body.gd" id="1_8p12i"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rhp4"]
+friction = 0.25
+bounce = 1.0
+
+[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("bodyCollision") groups=["overlayElement"]]
+visibility_layer = 2
+collision_mask = 2
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_5rhp4")
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+contact_monitor = true
+linear_damp = 0.1
+script = ExtResource("1_8p12i")
+numberOfSavedPositions = 20
+bodyCollision = NodePath("CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

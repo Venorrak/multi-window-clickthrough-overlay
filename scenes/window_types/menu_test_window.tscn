@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfhlyrsog1ixq"]
+
+[ext_resource type="PackedScene" uid="uid://bqhmt6k7s7i06" path="res://scenes/window_object_wrapper.tscn" id="1_2i3pe"]
+[ext_resource type="Script" path="res://scripts/get_window_specs.gd" id="2_w4x78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kblhm"]
+bg_color = Color(0.0131293, 1.20327e-08, 0.212809, 1)
+
+[node name="RigidBody2D" instance=ExtResource("1_2i3pe")]
+
+[node name="Node2D" type="Node2D" parent="." index="1"]
+script = ExtResource("2_w4x78")
+
+[node name="PanelContainer" type="PanelContainer" parent="Node2D" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Node2D/PanelContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kblhm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/PanelContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="test" type="PopupMenu" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer/MenuBar" index="0"]
+transient_to_focused = true
+always_on_top = true
+item_count = 2
+item_0/text = "test"
+item_1/text = "test"
+item_1/id = 1
+
+[node name="MenuBar2" type="MenuBar" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="menu" type="PopupMenu" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer/MenuBar2" index="0"]
+transient_to_focused = true
+always_on_top = true
+item_count = 2
+item_0/text = "test"
+item_1/text = "test"
+item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/PanelContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+
+[node name="test" type="PopupMenu" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer2/MenuBar" index="0"]
+auto_translate_mode = 1
+always_on_top = true
+item_count = 2
+item_0/text = "test"
+item_1/text = "test"
+item_1/id = 1
+
+[node name="MenuBar2" type="MenuBar" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+
+[node name="menu" type="PopupMenu" parent="Node2D/PanelContainer/VBoxContainer/HBoxContainer2/MenuBar2" index="0"]
+auto_translate_mode = 1
+always_on_top = true
+item_count = 2
+item_0/text = "test"
+item_1/text = "test"
+item_1/id = 1

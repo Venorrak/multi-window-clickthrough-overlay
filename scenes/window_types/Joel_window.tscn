@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://61rrmtt3c10k"]
+
+[ext_resource type="PackedScene" uid="uid://bqhmt6k7s7i06" path="res://scenes/window_object_wrapper.tscn" id="1_nvbsd"]
+[ext_resource type="Texture2D" uid="uid://bfk5jyeq8qfgx" path="res://resources/JoelNoBack.png" id="2_1m3vs"]
+[ext_resource type="Script" path="res://scripts/get_window_specs.gd" id="3_acbnh"]
+
+[node name="RigidBody2D" instance=ExtResource("1_nvbsd")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(181.5, 46)
+texture = ExtResource("2_1m3vs")
+script = ExtResource("3_acbnh")
+
+[node name="clickShape" type="CollisionPolygon2D" parent="Sprite2D" index="0"]
+polygon = PackedVector2Array(-171.5, 0, -147.5, -12, -114.5, -22, -65.5, -28, -23.5, -28, 30.5, -23, 53.5, -21, 85.5, -34, 88.5, -17, 106.5, -10, 123.5, -12, 164.5, -39, 163.5, -23, 153.5, -4, 158.5, 7, 162.5, 18, 144.5, 16, 126.5, 5, 91.5, 1, 82.5, 9, 101.5, 17, 92.5, 23, 60.5, 19, 32.5, 20, 34.5, 34, 18.5, 32, 7.5, 22, -65.5, 24, -93.5, 18, -116.5, 19, -162.5, 15)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3464rjd3hxek"]
+
+[ext_resource type="Script" path="res://scripts/ViewWindow.gd" id="1_xh535"]
+
+[node name="ViewWindow" type="Window"]
+transparent_bg = true
+title = "View World"
+initial_position = 1
+size = Vector2i(128, 128)
+transient = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_xh535")
+
+[node name="ViewCamera" type="Camera2D" parent="."]
+
+[connection signal="window_input" from="." to="." method="_on_window_input"]
