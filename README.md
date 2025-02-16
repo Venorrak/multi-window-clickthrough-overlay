@@ -41,7 +41,7 @@ This project was inspired by [this multiple window tutorial](https://github.com/
 
 ### Create new inherited scene
 You will need to create a new inherited scene of `window_object_wrapper.tscn` by right-clicking on it and pressing "New Inherited Scene".
-![how to create new scene](resources\new_inherit_scene.png)
+![how to create new scene](resources/new_inherit_scene.png)
 
 ### Create your new window
 After creating the scene, it will only have a RigidBody2D and a CollisionPolygon2D, do not change those. Create a new Node as a child of RigidBody2D that will be the content of your window. All of your new content for your window needs to under only one node (needs to inherit Node2D) that will have the `get_window_specs.gd` attached to it.
