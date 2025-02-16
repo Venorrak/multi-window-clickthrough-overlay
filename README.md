@@ -1,4 +1,4 @@
-# Multi Window Passthrough Overlay
+# Multi Window Clickthrough Overlay
 
 This project is an attempt at creating a transparent overlay that lets the user still use their desktop while being able to interact with different types of Godot objects. This project was realised with Godot 4.3 in the compatibility mode. It was only tested on windows.
 
