@@ -1,6 +1,6 @@
 # Multi Window Passthrough Overlay
 
-This project is an attempt at creating a transparent overlay that lets the user still user their desktop while being able to interact with different types of godot objects. This project was realised with Godot 4.3 in the compatibility mode. It was only tested on windows.
+This project is an attempt at creating a transparent overlay that lets the user still use their desktop while being able to interact with different types of Godot objects. This project was realised with Godot 4.3 in the compatibility mode. It was only tested on windows.
 
 This project was inspired by [this multiple window tutorial](https://github.com/geegaz/Multiple-Windows-tutorial).
 
@@ -35,7 +35,7 @@ This project was inspired by [this multiple window tutorial](https://github.com/
 - world.gd: contains the code to create new windows
 - ViewWindow.gd: contains the code to move and edit the window
 - window_object.gd: contains the logic to drag it, and transfer content specs to associated window
-- get_window_specs.gd: gets size & clickable area of content and send it to window_object
+- get_window_specs.gd: gets the size & clickable area of content and send it to window_object
 
 ## How to implement your own window_object
 
@@ -45,7 +45,7 @@ You will need to create a new inherited scene of `window_object_wrapper.tscn` by
 ![how to create new scene](resources/new_inherit_scene.png)
 
 ### Create your new window
-After creating the scene, it will only have a RigidBody2D and a CollisionPolygon2D, do not change those. Create a new Node as a child of RigidBody2D that will be the content of your window. All of your new content for your window needs to under only one node (needs to inherit Node2D) that will have the `get_window_specs.gd` attached to it.
+After creating the scene, it will only have a RigidBody2D and a CollisionPolygon2D, do not change those. Create a new Node as a child of RigidBody2D that will be the content of your window. All of your new content for your window needs to be under only one node (needs to inherit Node2D) that will have the `get_window_specs.gd` attached to it.
 
 ### Adapt support to get content size
 After creating all the content of your new window, if your content isn't supported by the `get_window_specs.gd` script to get the size of the content. You will need to implement your own content size calculations
@@ -60,4 +60,4 @@ match self.get_class():
 ```
 
 ### Add clickthrough support
-If only part of your window to catch mouse inputs you will need to implement clickthrough, lucky for you I already did it (partly). You will only need to add a CollisionPolygon2D named "clickShape" to the node containing the `get_window_specs.gd` script and set the polygon. It should now work !!!
+If only part of your window to catch mouse inputs, you will need to implement clickthrough, lucky for you I already did it (partly). You will only need to add a CollisionPolygon2D named "clickShape" to the node containing the `get_window_specs.gd` script and set the polygon. It should now work!!!
