@@ -41,6 +41,7 @@ This project was inspired by [this multiple window tutorial](https://github.com/
 
 ### Create new inherited scene
 You will need to create a new inherited scene of `window_object_wrapper.tscn` by right-clicking on it and pressing "New Inherited Scene".
+
 ![how to create new scene](resources/new_inherit_scene.png)
 
 ### Create your new window
