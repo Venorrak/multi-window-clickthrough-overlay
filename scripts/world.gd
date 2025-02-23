@@ -31,5 +31,5 @@ func create_new_body(object, position : Vector2i = DisplayServer.screen_get_size
 	object.position = position
 	new_window.setChild(object)# say to the window what object it is following
 	
-	sceneRoot.add_child(object)
-	add_child(new_window)
+	sceneRoot.add_child.call_deferred(object)
+	add_child.call_deferred(new_window)

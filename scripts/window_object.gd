@@ -12,12 +12,15 @@ signal inputReceived
 
 func passInput(event : InputEvent) -> void:
 	if event is InputEventMouseButton:
+		var backEndEvent : InputEventMouseButton = event.duplicate(true) # need this so the menu work in the window
+		backEndEvent.position = backEndEvent.position + position
+		get_viewport().push_input(backEndEvent, true)
+	else:
+		get_viewport().push_input(event, true)
+		
+	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				var backEndEvent : InputEventMouseButton = event.duplicate(true) # need this so the menu work in the window
-				backEndEvent.position = backEndEvent.position + position
-				get_viewport().push_input(backEndEvent, true)
-				
 				if event.pressed:
 					freeze = true
 					lastPositions = [] #reset velocity
@@ -32,8 +35,7 @@ func passInput(event : InputEvent) -> void:
 
 	if event is InputEventMouseMotion: #move the object if you're dragging it
 		if freeze == true && event.button_mask == MOUSE_BUTTON_LEFT:
-			if event.relative.length() < 500:
-				position += event.relative
+			position = get_viewport().get_mouse_position() - (windowSize / 2)
 
 func _physics_process(delta: float) -> void:
 	amIOutOfBounds()# if it's out of the screen remove it
@@ -53,12 +55,18 @@ func calculateVelocity() -> Vector2:
 	for vec in velocities:
 		force += vec.length()
 	# the last velocity chooses the direction and the force is the addition of all the vectors
+	if velocities.is_empty():
+		return Vector2.ZERO
 	return velocities[-1].normalized() * force 
 
 func amIOutOfBounds() -> void:
 	var screenRec : Vector2i = DisplayServer.screen_get_size(0)
 	if position.x > screenRec.x || position.x < 0 - windowSize.x || position.y > screenRec.y || position.y < 0 - windowSize.y:
-		queue_free()
+		PhysicsServer2D.body_set_state( #the rigidbody has to be moved with the physics engine so it stay where it is after you unfreeze it
+			get_rid(),
+			PhysicsServer2D.BODY_STATE_TRANSFORM,
+			Transform2D.IDENTITY.translated(windowSize)
+		)
 
 func getFourCorners(size : Vector2) -> PackedVector2Array:
 	var corners : Array = []
